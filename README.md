@@ -214,7 +214,7 @@ ____________________________________________________
   </android.support.constraint.ConstraintLayout>
   ```
 
--  fragment_one~four.xml
+- fragment_one~four.xml
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>
