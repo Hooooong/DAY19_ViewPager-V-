@@ -18,9 +18,9 @@ ____________________________________________________
 
 - Fragment vs View
 
-  - Fragment 인 경우에는 Activity 생명주기 외에도 Fragment 의 생명주기를 관리해야 하기 때문에 불편하다.
+  - Fragment 인 경우에는 Activity 생명주기 외에도 Fragment 의 생명주기를 관리해야 하기 때문에 예상치 못한 오류가 발생할 수 있다.
 
-  - Fragment 를 이용하는 경우도 있지만 Layout 을 상속받아 ViewPager 에 보여줄 수 있다.(Fragment 인 경우 Fragment 를 상속받음)
+  - Fragment 를 이용하는 경우도 있지만, Layout 을 상속받아 ViewPager 에 보여줄 수 있다. (Fragment 인 경우 Fragment 를 상속받음)
 
 - Adpater 구현
 
@@ -35,30 +35,33 @@ ____________________________________________________
   - `destroyItem()` 는 현재 사용하지 않는 View 를 제거한다. ViewPager 는 3개의 View 를 생성하기 때문에 이전에 사용했던 View 를 제거해준다.
 
   ```java
+  // ViewPager 에 보일 View의 갯수
+  private static final int COUNT = 4;
+
   @Override
-   public int getCount() {
-       return COUNT;
-   }
+  public int getCount() {
+     return COUNT;
+  }
 
-   @Override
-   public Object instantiateItem(ViewGroup container, int position) {
-       View view = views.get(position);
-       // OR
-       // 여기서 레이아웃 파일을 inflate해서 view로 만들 수 있다.
-       // 현재 코드는 생성자에서 이미 생성되어진 View 를 가져와 사용한다.
-       container.addView(view);
-       return view;
-   }
+  @Override
+  public Object instantiateItem(ViewGroup container, int position) {
+     View view = views.get(position);
+     // OR
+     // 여기서 레이아웃 파일을 inflate해서 view로 만들 수 있다.
+     // 현재 코드는 생성자에서 이미 생성되어진 View 를 가져와 사용한다.
+     container.addView(view);
+     return view;
+  }
 
-   @Override
-   public boolean isViewFromObject(View view, Object object) {
-       return view == object;
-   }
+  @Override
+  public boolean isViewFromObject(View view, Object object) {
+     return view == object;
+  }
 
-   @Override
-   public void destroyItem(ViewGroup container, int position, Object object) {
-       container.removeView((View)object);
-   }  
+  @Override
+  public void destroyItem(ViewGroup container, int position, Object object) {
+     container.removeView((View)object);
+  }  
   ```
 
 ### Code Review
