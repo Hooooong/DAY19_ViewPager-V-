@@ -28,7 +28,7 @@ ____________________________________________________
 
   - `instantiateItem()`, `isViewFromObject()`, `destroyItem()`, `getCount()` 를 재정의해야 한다. `instantiateItem()` 은 BaseAdapter의 `getView()` 와 유사하다.
 
-  - `instantiateItem()` 는 Swipe 할 때 최대 3번, 최소 2번이 호출이 된다. 예를 들면 2번 페이지를 보여줄 때, 1, 2, 3 페이지를 한번에 호출해 메모리에 올리기 떄문에 총 3번 호출이 된다.
+  - `instantiateItem()` 는 Swipe 할 때 최대 3번, 최소 1번이 호출이 된다. 예를 들면 2번 페이지를 보여줄 때, 1, 2, 3 페이지를 한번에 호출해 메모리에 올리기 떄문에 총 3번 호출이 된다.
 
   - `isViewFromObject()`는 `instantiateItem()` 에서 생성한 객체를 이용할 것인지 여부를 반환 한다. `instantiateItem()`에서 리턴된 object가 View가 맞는지 확인을 한다.
 
